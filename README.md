@@ -30,20 +30,19 @@ Availables builds `flavour`:
 - minituxy: tuxy-image-dev build for A20-OLinuXino-LIME), eth0 IP address 192.168.0.99
 
 Build instruction:
-  $ git clone git://github.com/linuxteam-robotique/tuxy-distro.git
-  $ cd tuxy-distro
-  $ flavour=`flavour` ./do.sh init
-  $ flavour=`flavour` ./do.sh build
-  insert an SD card in MMC card reader, do NOT mount it
-  # flavour=`flavour` ./do.sh flash
-  insert SD card into SD card connector of the board and power it up... wait 6 seconds... booted!
+    $ git clone git://github.com/linuxteam-robotique/tuxy-distro.git
+    $ cd tuxy-distro
+    $ flavour=`flavour` ./do.sh init
+    $ flavour=`flavour` ./do.sh build
+    insert an SD card in MMC card reader, do NOT mount it
+    # flavour=`flavour` ./do.sh flash
+    insert SD card into SD card connector of the board and power it up... wait 6 seconds... booted!
 
 ## Prebuild SD card images
 
 Flash image to SD card located in SD card reader:
-  $ dd bs=4M oflag=sync if=<image> of=/dev/mmcblk0
+    $ dd bs=4M oflag=sync if=<image> of=/dev/mmcblk0
 
 ## TODO
 
 - wireless
-
