@@ -1,7 +1,5 @@
 
-require recipes-core/images/core-image-minimal.bb
-
-IMAGE_FEATURES += "ssh-server-openssh debug-tweaks"
+require tuxy-image.inc
 
 # 128MB filesystem
 IMAGE_ROOTFS_SIZE = "131072"

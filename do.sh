@@ -27,17 +27,16 @@ env_flavour() {
     echo "NOTE no 'flavour' environment variable found, defaulting to flavour=$default_flavour"
     flavour=$default_flavour
   fi
-
   case "$flavour" in
     tuxy)
       export MACHINE="olinuxino-a20"
       export DISTRO="tuxy"
-      image_recipe="tuxy-image"
+      if [ -z "$image_recipe" ]; then image_recipe="tuxy-image-dev"; fi
     ;;
     minituxy)
       export MACHINE="olinuxino-a20lime"
       export DISTRO="minituxy"
-      image_recipe="tuxy-image"
+      if [ -z "$image_recipe" ]; then image_recipe="tuxy-image-dev"; fi
     ;;
     *)
       echo "ERROR '$flavour' unknown or not set. Please to do at the begining of this file ($0) or as envar (flavour=<flavour> $0)."
