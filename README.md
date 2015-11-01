@@ -13,21 +13,21 @@ Note: It should work on most embedded board based on SoC of the AllWinner family
 
 ## Software
 
-Tuxy distro is based on OpenEmbedded http://www.openembedded.org/ , sunxi layer https://github.com/linux-sunxi/meta-sunxi and the work done by the linux-sunxi community http://linux-sunxi.org .
+Tuxy distro is based on OpenEmbedded http://www.openembedded.org/ and sunxi layer https://github.com/linux-sunxi/meta-sunxi .
 
 Tuxy distro is a minimalist distibution:
 - Small image (~core-image-minimal)
 - Boot speed slightly optimized to boot in 6 seconds (mostly u-boot tuning)
 
 2 images are available:
-- tuxy-image: minimal distro with openssh server, 20 MB used on 128 MB rootfs
-- tuxy-image-dev: minimal distro with openssh server and development tools (gdb, gdbserver, cpp, gcc, make, vim), 90 MB used on 256 MB rootfs
+- tuxy-image: minimal distro with openssh server, 20 MB used on 128 MB rootfs.
+- tuxy-image-dev: minimal distro with openssh server and development tools (gdb, gdbserver, cpp, gcc, make, vim), 90 MB used on 256 MB rootfs.
 
 ## Build
 
-Availables builds `flavour`:
-- tuxy: tuxy-image-dev build for A20-OLinuXino-MICRO), eth0 IP address 192.168.0.99
-- minituxy: tuxy-image-dev build for A20-OLinuXino-LIME), eth0 IP address 192.168.0.99
+Available build `flavour`:
+- flavour=tuxy => tuxy-image-dev build for A20-OLinuXino-MICRO), eth0 IP address 192.168.0.99
+- flavour=minituxy => tuxy-image-dev build for A20-OLinuXino-LIME), eth0 IP address 192.168.0.98
 
 Build instruction:
 ```
