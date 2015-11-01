@@ -13,7 +13,7 @@ Note: It should work on most embedded board based on SoC of the AllWinner family
 
 ## Software
 
-Tuxy distro is based on OpenEmbedded http://www.openembedded.org/ and sunxi layer https://github.com/linux-sunxi/meta-sunxi .
+Tuxy distro is based on OpenEmbedded http://www.openembedded.org/ , sunxi layer https://github.com/linux-sunxi/meta-sunxi and external prebuild Linaro toolchain http://releases.linaro.org/15.02/components/toolchain/binaries/ .
 
 Tuxy distro is a minimalist distibution:
 - Small image (~core-image-minimal)
@@ -40,11 +40,21 @@ Build instruction:
     # ./do.sh flash
     insert SD card into SD card connector of the board and power it up... wait 6 seconds... booted!
 ```
+
 ## Prebuild SD card images
 
 Flash image to SD card located in SD card reader:
     $ dd bs=4M oflag=sync if=<image> of=/dev/mmcblk0
 
-## TODO
+## Developpent
 
+Based on Fideo branch (related to Yocto project Fido 1.8 core relase):
+  - Bitbake: branch 1.26, repo git://git.openembedded.org/bitbake
+  - Linaro toolchain: branch fido, repo git://git.linaro.org/openembedded/meta-linaro.git
+  - OpenEmbedded: branch fido, repos git://github.com/openembedded/meta-openembedded.git git://github.com/openembedded/openembedded-core.git
+  - linux-sunxi: branch master, repo git://github.com/linux-sunxi/meta-sunxi.git
+
+### TODO
+- ipaddr update during image generation
 - wireless
+

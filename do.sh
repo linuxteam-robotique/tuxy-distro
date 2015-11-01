@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-flavour="tuxy"
-#flavour="minituxy"
+#default_flavour="tuxy"
+default_flavour="minituxy"
 
 # OpenEmbedded
 export OEBASE=$(dirname $(readlink -f $0))
@@ -17,28 +17,34 @@ export CORE_COUNT=$(cat /proc/cpuinfo |grep ^processor|wc -l)
 export BB_ENV_EXTRAWHITE="MACHINE DISTRO TCLIBC TCMODE EXTERNAL_TOOLCHAIN DEFAULTTUNE GIT_PROXY_COMMAND http_proxy ftp_proxy https_proxy all_proxy ALL_PROXY no_proxy SSH_AGENT_PID SSH_AUTH_SOCK BB_SRCREV_POLICY SDKMACHINE TARGET_SYS OEBASE CORE_COUNT"
 
 do_usage() {
-  echo "USAGE: $0 init|build-tuxy|build-minituxy|bitbake|flash-tuxy|flash-minituxy|mrproper <args>"
+  echo "USAGE: flavour=tuxy|minituxy $0 init|build|bitbake|flash|mrproper <args>"
   exit 1
 }
 
 env_flavour() {
+
+  if [ -z "$flavour" ]; then
+    echo "NOTE no 'flavour' environment variable found, defaulting to flavour=$default_flavour"
+    flavour=$default_flavour
+  fi
+
   case "$flavour" in
     tuxy)
-      #XXX export MACHINE="olinuxino-a20"
-      export MACHINE="olinuxino-a20lime"
+      export MACHINE="olinuxino-a20"
       export DISTRO="tuxy"
-      image_recipe="tuxy-image-dev"
+      image_recipe="tuxy-image"
     ;;
     minituxy)
       export MACHINE="olinuxino-a20lime"
       export DISTRO="minituxy"
-      image_recipe="tuxy-image-dev"
+      image_recipe="tuxy-image"
     ;;
     *)
       echo "ERROR '$flavour' unknown or not set. Please to do at the begining of this file ($0) or as envar (flavour=<flavour> $0)."
       exit 1
     ;;
   esac
+  echo "NOTE flavour=$flavour is MACHINE=$MACHINE, DISTRO=$DISTRO, image_recipe=$image_recipe"
 }
 
 do_toolchain() {
@@ -56,21 +62,20 @@ do_toolchain() {
 
 do_layers() {
   cd sources
-
   if [ ! -d bitbake ]; then
-    git clone git://github.com/openembedded/bitbake.git
+    git clone --branch 1.26 git://github.com/openembedded/bitbake.git
   fi
   if [ ! -d meta-linaro ]; then
-    git://git.linaro.org/openembedded/meta-linaro.git
+    git clone --branch fido git://git.linaro.org/openembedded/meta-linaro.git
   fi
   if [ ! -d meta-openembedded ]; then
-    git://github.com/openembedded/meta-openembedded.git
+    git clone --branch fido git://github.com/openembedded/meta-openembedded.git
   fi
   if [ ! -d meta-sunxi ]; then
-    git://github.com/linux-sunxi/meta-sunxi.git
+    git clone --branch master git://github.com/linux-sunxi/meta-sunxi.git
   fi
   if [ ! -d openembedded-core ]; then
-    git://github.com/openembedded/openembedded-core.git
+    git clone --branch fido git://github.com/openembedded/openembedded-core.git
   fi
 }
 
@@ -147,7 +152,7 @@ do_sav() {
 }
 
 cd $OEBASE
-env_flavour $flavour
+env_flavour
 cmd=$1
 if [ ! -z "$cmd" ]; then shift; fi
 case "$cmd" in
