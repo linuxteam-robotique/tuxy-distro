@@ -44,9 +44,10 @@ Build instruction:
 ## Prebuild SD card images
 
 Decompress image and flash it to SD card located in SD card reader:
+```
     $ xz -d minituxy-olinuxinoa20lime-20151101.img.xz
     $ dd bs=4M oflag=sync if=minituxy-olinuxinoa20lime-20151101.img.xz of=/dev/mmcblk0
-
+```
 ## Developpent
 
 Based on Fideo branch (related to Yocto project Fido 1.8 core relase):
