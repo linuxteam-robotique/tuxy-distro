@@ -33,10 +33,11 @@ Build instruction:
 ```
     $ git clone git://github.com/linuxteam-robotique/tuxy-distro.git
     $ cd tuxy-distro
-    $ flavour=flavour ./do.sh init
-    $ flavour=flavour ./do.sh build
+    $ flavour=tuxy
+    $ ./do.sh init
+    $ ./do.sh build
     insert an SD card in MMC card reader, do NOT mount it
-    # flavour=flavour ./do.sh flash
+    # ./do.sh flash
     insert SD card into SD card connector of the board and power it up... wait 6 seconds... booted!
 ```
 ## Prebuild SD card images
