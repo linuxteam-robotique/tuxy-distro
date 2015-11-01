@@ -43,8 +43,9 @@ Build instruction:
 
 ## Prebuild SD card images
 
-Flash image to SD card located in SD card reader:
-    $ dd bs=4M oflag=sync if=<image> of=/dev/mmcblk0
+Decompress image and flash it to SD card located in SD card reader:
+    $ xz -d minituxy-olinuxinoa20lime-20151101.img.xz
+    $ dd bs=4M oflag=sync if=minituxy-olinuxinoa20lime-20151101.img.xz of=/dev/mmcblk0
 
 ## Developpent
 

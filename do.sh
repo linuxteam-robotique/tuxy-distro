@@ -145,6 +145,29 @@ virtual/arm-linux-gnueabihf-gcc"
   echo "graphviz... done"
 }
 
+do_release() {
+  if [ -d release ]; then
+    echo "ERROR release directory already exists."
+    exit 1
+  fi
+  ver=$(date +%Y%m%d)
+  image_recipe="tuxy-image" flavour="minituxy" ./do.sh build
+  image_recipe="tuxy-image-dev" flavour="minituxy" ./do.sh build
+  image_recipe="tuxy-image" flavour="tuxy" ./do.sh build
+  image_recipe="tuxy-image-dev" flavour="tuxy" ./do.sh build
+  mkdir release
+  cp --dereference build/deploy/images/minituxy-olinuxino-a20lime/tuxy-image-olinuxino-a20lime.sunxi-sdimg release/minituxy-olinuxinoa20lime-${ver}.img
+  xz release/minituxy-olinuxinoa20lime-${ver}.img
+  cp --dereference build/deploy/images/minituxy-olinuxino-a20lime/tuxy-image-dev-olinuxino-a20lime.sunxi-sdimg release/minituxy-olinuxinoa20lime-dev-${ver}.img
+  xz release/minituxy-olinuxinoa20lime-dev-${ver}.img
+  cp --dereference build/deploy/images/tuxy-olinuxino-a20/tuxy-image-olinuxino-a20.sunxi-sdimg release/tuxy-olinuxinoa20micro-${ver}.img
+  xz release/tuxy-olinuxinoa20micro-${ver}.img
+  cp --dereference build/deploy/images/tuxy-olinuxino-a20/tuxy-image-dev-olinuxino-a20.sunxi-sdimg release/tuxy-olinuxinoa20micro-dev-${ver}.img
+  xz release/tuxy-olinuxinoa20micro-dev-${ver}.img
+  
+
+}
+
 do_sav() {
   # tar zcf ~/sav/openembedded- date +%Y%m%d-%H%M
   :
@@ -162,6 +185,7 @@ case "$cmd" in
   mrproper) do_mrproper;;
   graphviz) do_graphviz;;
   sav) do_sav;;
+  release) do_release;;
   *) do_usage;;
 esac
 
