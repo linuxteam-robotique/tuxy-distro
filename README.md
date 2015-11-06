@@ -56,6 +56,5 @@ Based on Fideo branch (related to Yocto project Fido 1.8 core relase):
   - linux-sunxi: branch master, repo git://github.com/linux-sunxi/meta-sunxi.git
 
 ### TODO
-- ipaddr update during image generation
 - wireless
 
