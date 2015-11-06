@@ -1,7 +1,7 @@
 
 # Tuxy distro
 
-Tuxy distro is a minimalist embbeded distribution based on OpenEmbedded and linux-sunxi for Olimex OLinuXino Allwinner SoCs boards.
+Tuxy distro is a minimalist embedded distribution based on OpenEmbedded and linux-sunxi for Olimex OLinuXino Allwinner SoCs boards.
 
 ## Hardware
 
@@ -14,7 +14,7 @@ Note: It should work on most embedded board based on SoC of the AllWinner family
 
 Tuxy distro is based on OpenEmbedded http://www.openembedded.org/ , sunxi layer https://github.com/linux-sunxi/meta-sunxi and external prebuild Linaro toolchain http://releases.linaro.org/15.02/components/toolchain/binaries/ .
 
-Tuxy distro is a minimalist distibution:
+Tuxy distro is a minimalist distribution:
 - Small image (~core-image-minimal)
 - Boot speed slightly optimized to boot in 6 seconds (mostly u-boot tuning)
 
@@ -35,7 +35,7 @@ Build instruction:
     $ export flavour=minituxy
     $ ./do.sh init
     $ ./do.sh build
-    insert an SD card in MMC card reader (/dev/mmcblk0), do NOT mount it
+    insert a SD card in MMC card reader (/dev/mmcblk0), do NOT mount it
     # ./do.sh flash
     insert SD card into SD card connector of the board and power it up... wait 6 seconds... booted!
 ```
@@ -47,7 +47,7 @@ Decompress image and flash it to SD card located in SD card reader:
     $ xz -d minituxy-olinuxinoa20lime-20151101.img.xz
     $ dd bs=4M oflag=sync if=minituxy-olinuxinoa20lime-20151101.img.xz of=/dev/mmcblk0
 ```
-## Developpent
+## Development
 
 Based on Fideo branch (related to Yocto project Fido 1.8 core relase):
   - Bitbake: branch 1.26, repo git://git.openembedded.org/bitbake
