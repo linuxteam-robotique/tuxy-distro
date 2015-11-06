@@ -7,7 +7,6 @@ Tuxy distro is a minimalist embbeded distribution based on OpenEmbedded and linu
 
 For Olimex Olinuxino boards based on Allwinner SoCs with SD card connector. It at been tested on:
 - A20-OLinuXino-LIME https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXino-LIME/open-source-hardware
-- A20-OLinuXino-MICRO https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXino-MICRO/open-source-hardware
 
 Note: It should work on most embedded board based on SoC of the AllWinner family without too much work.
 
@@ -33,10 +32,10 @@ Build instruction:
 ```
     $ git clone git://github.com/linuxteam-robotique/tuxy-distro.git
     $ cd tuxy-distro
-    $ flavour=tuxy
+    $ export flavour=minituxy
     $ ./do.sh init
     $ ./do.sh build
-    insert an SD card in MMC card reader, do NOT mount it
+    insert an SD card in MMC card reader (/dev/mmcblk0), do NOT mount it
     # ./do.sh flash
     insert SD card into SD card connector of the board and power it up... wait 6 seconds... booted!
 ```
