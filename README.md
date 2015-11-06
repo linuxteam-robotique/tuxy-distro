@@ -3,6 +3,8 @@
 
 Tuxy distro is a minimalist embedded distribution based on OpenEmbedded and linux-sunxi for Olimex OLinuXino Allwinner SoCs boards.
 
+Tuxy distro provides basis to make customized distribution depending on specific needs in a controlled manner (example: robotic systems). And by adding only what is needed, the bonus is a reasonably small image.
+
 ## Hardware
 
 For Olimex Olinuxino boards based on Allwinner SoCs with SD card connector. It at been tested on:
