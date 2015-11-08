@@ -9,6 +9,7 @@ Tuxy distro provides basis to make customized distribution depending on specific
 
 For Olimex Olinuxino boards based on Allwinner SoCs with SD card connector. It at been tested on:
 - A20-OLinuXino-LIME https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXino-LIME/open-source-hardware
+![](https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXino-LIME/images/thumbs/310x230/A20-OLinuXino-LIME-1.jpg)
 
 Note: It should work on most embedded board based on SoC of the AllWinner family without too much work.
 
