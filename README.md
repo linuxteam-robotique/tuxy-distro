@@ -28,6 +28,9 @@ Tuxy distro is a minimalist distribution:
 
 ## Build
 
+Tested host Linux distribution:
+  - Ubuntu 15.10 x86_64
+
 Available build `flavour`:
 - flavour=tuxy => tuxy-image-dev build for A20-OLinuXino-MICRO), eth0 IP address 192.168.0.99
 - flavour=minituxy => tuxy-image-dev build for A20-OLinuXino-LIME), eth0 IP address 192.168.0.98
