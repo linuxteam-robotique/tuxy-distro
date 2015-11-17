@@ -56,7 +56,7 @@ Decompress image and flash it to SD card located in SD card reader:
 ```
 ## Development
 
-Based on Fideo branch (related to Yocto project Fido 1.8 core relase):
+Based on Fido branch (related to Yocto project Fido 1.8 core relase):
   - Bitbake: branch 1.26, repo git://git.openembedded.org/bitbake
   - Linaro toolchain: branch fido, repo git://git.linaro.org/openembedded/meta-linaro.git
   - OpenEmbedded: branch fido, repos git://github.com/openembedded/meta-openembedded.git git://github.com/openembedded/openembedded-core.git
