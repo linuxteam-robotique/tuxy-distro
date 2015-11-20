@@ -37,6 +37,7 @@ Available build `flavour`:
 
 Build instruction:
 ```
+    $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat
     $ git clone git://github.com/linuxteam-robotique/tuxy-distro.git
     $ cd tuxy-distro
     $ export flavour=minituxy
@@ -56,10 +57,10 @@ Decompress image and flash it to SD card located in SD card reader:
 ```
 ## Development
 
-Based on Fido branch (related to Yocto project Fido 1.8 core relase):
-  - Bitbake: branch 1.26, repo git://git.openembedded.org/bitbake
-  - Linaro toolchain: branch fido, repo git://git.linaro.org/openembedded/meta-linaro.git
-  - OpenEmbedded: branch fido, repos git://github.com/openembedded/meta-openembedded.git git://github.com/openembedded/openembedded-core.git
+Based on jethro branch (related to Yocto project jethro 2.0 core release):
+  - Bitbake: branch 1.28, repo git://git.openembedded.org/bitbake
+  - Linaro toolchain: branch jethro, repo git://git.linaro.org/openembedded/meta-linaro.git
+  - OpenEmbedded: branch jethro, repos git://github.com/openembedded/meta-openembedded.git git://github.com/openembedded/openembedded-core.git
   - linux-sunxi: branch master, repo git://github.com/linux-sunxi/meta-sunxi.git
 
 ### TODO

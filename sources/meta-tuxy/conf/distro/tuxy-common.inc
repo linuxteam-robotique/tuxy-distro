@@ -1,0 +1,5 @@
+
+DISTRO_VERSION = "v2015.11"
+
+PREFERRED_VERSION_gcc ?= "linaro-4.9"
+

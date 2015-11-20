@@ -3,6 +3,7 @@ set -e
 
 #default_flavour="tuxy"
 default_flavour="minituxy"
+image_recipe="tuxy-image-dev"
 
 # OpenEmbedded
 export OEBASE=$(dirname $(readlink -f $0))
@@ -62,19 +63,19 @@ do_toolchain() {
 do_layers() {
   cd sources
   if [ ! -d bitbake ]; then
-    git clone --branch 1.26 git://github.com/openembedded/bitbake.git
+    git clone --branch 1.28 git://github.com/openembedded/bitbake.git
   fi
   if [ ! -d meta-linaro ]; then
-    git clone --branch fido git://git.linaro.org/openembedded/meta-linaro.git
+    git clone --branch jethro git://git.linaro.org/openembedded/meta-linaro.git
   fi
   if [ ! -d meta-openembedded ]; then
-    git clone --branch fido git://github.com/openembedded/meta-openembedded.git
+    git clone --branch jethro git://github.com/openembedded/meta-openembedded.git
   fi
   if [ ! -d meta-sunxi ]; then
     git clone --branch master git://github.com/linux-sunxi/meta-sunxi.git
   fi
   if [ ! -d openembedded-core ]; then
-    git clone --branch fido git://github.com/openembedded/openembedded-core.git
+    git clone --branch jethro git://github.com/openembedded/openembedded-core.git
   fi
 }
 
@@ -111,6 +112,7 @@ do_flash() {
     echo "ERROR $sdimg not built, must do build-${flavour}."
     exit 1
   fi
+  echo "NOTE dd bs=4M oflag=sync if=$sdimg of=/dev/mmcblk0 ..."
   time sudo dd bs=4M oflag=sync if=$sdimg of=/dev/mmcblk0
   sync
   echo "flash $flavour... done"
@@ -156,15 +158,23 @@ do_release() {
   image_recipe="tuxy-image" flavour="tuxy" ./do.sh build
   image_recipe="tuxy-image-dev" flavour="tuxy" ./do.sh build
   mkdir release
+  echo "releases ..."
+  echo "release release/minituxy-olinuxinoa20lime-${ver}.img ..."
   cp --dereference build/deploy/images/minituxy-olinuxino-a20lime/tuxy-image-olinuxino-a20lime.sunxi-sdimg release/minituxy-olinuxinoa20lime-${ver}.img
   xz release/minituxy-olinuxinoa20lime-${ver}.img
+
+  echo "release release/minituxy-olinuxinoa20lime-dev-${ver}.img ..."
   cp --dereference build/deploy/images/minituxy-olinuxino-a20lime/tuxy-image-dev-olinuxino-a20lime.sunxi-sdimg release/minituxy-olinuxinoa20lime-dev-${ver}.img
   xz release/minituxy-olinuxinoa20lime-dev-${ver}.img
+
+  echo "release release/tuxy-olinuxinoa20micro-${ver}.img ..."
   cp --dereference build/deploy/images/tuxy-olinuxino-a20/tuxy-image-olinuxino-a20.sunxi-sdimg release/tuxy-olinuxinoa20micro-${ver}.img
   xz release/tuxy-olinuxinoa20micro-${ver}.img
+
+  echo "release/tuxy-olinuxinoa20micro-dev-${ver}.img ..."
   cp --dereference build/deploy/images/tuxy-olinuxino-a20/tuxy-image-dev-olinuxino-a20.sunxi-sdimg release/tuxy-olinuxinoa20micro-dev-${ver}.img
   xz release/tuxy-olinuxinoa20micro-dev-${ver}.img
-  
+  echo "releases ... done."
 
 }
 
