@@ -171,7 +171,7 @@ do_release() {
   cp --dereference build/deploy/images/tuxy-olinuxino-a20/tuxy-image-olinuxino-a20.sunxi-sdimg release/tuxy-olinuxinoa20micro-${ver}.img
   xz release/tuxy-olinuxinoa20micro-${ver}.img
 
-  echo "release/tuxy-olinuxinoa20micro-dev-${ver}.img ..."
+  echo "release release/tuxy-olinuxinoa20micro-dev-${ver}.img ..."
   cp --dereference build/deploy/images/tuxy-olinuxino-a20/tuxy-image-dev-olinuxino-a20.sunxi-sdimg release/tuxy-olinuxinoa20micro-dev-${ver}.img
   xz release/tuxy-olinuxinoa20micro-dev-${ver}.img
   echo "releases ... done."
