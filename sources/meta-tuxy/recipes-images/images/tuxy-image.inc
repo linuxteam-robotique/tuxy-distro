@@ -6,8 +6,10 @@ IMAGE_FEATURES += "ssh-server-openssh debug-tweaks"
 IMAGE_INSTALL += " \
     kernel-module-cdc-acm \
     kernel-module-usbhid \
-    kernel-module-usbserial pl2303 \
+    kernel-module-usbserial kernel-module-pl2303 \
     kernel-module-usb-storage \
+    iw wpa-supplicant crda \
+    linux-firmware-ralink kernel-module-rt2800usb kernel-module-arc4 \
 "
 
 tuxy_rootfs_update() {

@@ -20,7 +20,7 @@ Note: It should work on most embedded board based on SoC of the AllWinner family
 Tuxy distro is based on OpenEmbedded http://www.openembedded.org/ , sunxi layer https://github.com/linux-sunxi/meta-sunxi and external prebuild Linaro toolchain http://releases.linaro.org/15.02/components/toolchain/binaries/ (GCC 4.9).
 
 Tuxy distro is a minimalist distribution:
-- Linux kernel 4.1.10
+- Linux kernel 4.1.15
 - Small image (~core-image-minimal)
 - Boot speed slightly optimized to boot in 6 seconds (mostly u-boot tuning)
 
