@@ -3,6 +3,13 @@ require recipes-core/images/core-image-minimal.bb
 
 IMAGE_FEATURES += "ssh-server-openssh debug-tweaks"
 
+IMAGE_INSTALL += " \
+    kernel-module-cdc-acm \
+    kernel-module-usbhid \
+    kernel-module-usbserial pl2303 \
+    kernel-module-usb-storage \
+"
+
 tuxy_rootfs_update() {
     if [ ! -z "${ETH0_IP_ADDR}" ]; then
       # note: interfaces is owned by init-ifupdown_1.%.bbappend and updated here

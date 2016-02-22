@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-#default_flavour="tuxy"
 default_flavour="minituxy"
 image_recipe="tuxy-image-dev"
 
