@@ -9,7 +9,7 @@ iface wlan0 inet static
     netmask 255.255.255.0
     wireless_mode managed
     wireless_essid any
-    wpa-driver wext
+    wpa-driver nl80211
     wpa-conf /etc/wpa_supplicant.conf
 
 # Wired or wireless interfaces

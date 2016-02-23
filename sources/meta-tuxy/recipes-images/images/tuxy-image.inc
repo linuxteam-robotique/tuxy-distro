@@ -8,7 +8,7 @@ IMAGE_INSTALL += " \
     kernel-module-usbhid \
     kernel-module-usbserial kernel-module-pl2303 \
     kernel-module-usb-storage \
-    iw wpa-supplicant crda \
+    iw wpa-supplicant crda wireless-tools kernel-module-rfkill kernel-module-rfkill-regulator \
     linux-firmware-ralink kernel-module-rt2800usb kernel-module-arc4 \
 "
 
