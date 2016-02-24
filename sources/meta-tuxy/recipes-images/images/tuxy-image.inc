@@ -8,8 +8,10 @@ IMAGE_INSTALL += " \
     kernel-module-usbhid \
     kernel-module-usbserial kernel-module-pl2303 \
     kernel-module-usb-storage \
-    iw wpa-supplicant crda wireless-tools kernel-module-rfkill kernel-module-rfkill-regulator \
-    linux-firmware-ralink kernel-module-rt2800usb kernel-module-arc4 \
+    iw wpa-supplicant crda wireless-tools \
+    kernel-module-ipv6 \
+    kernel-module-mac80211 kernel-module-cfg80211 kernel-module-rfkill kernel-module-ctr kernel-module-ccm kernel-module-arc4 kernel-module-crc-ccitt \
+    linux-firmware-ralink kernel-module-rt2800usb kernel-module-rt2800lib kernel-module-rt2x00usb kernel-module-rt2x00lib \
 "
 
 tuxy_rootfs_update() {
